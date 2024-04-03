@@ -1,19 +1,58 @@
-# invoice_web_app_client
+# Quick Invoice
 
-## Project setup
-```
-npm install
-```
+Quick Invoice is an invoice management system that enables small business owners to generate invoices and send them to their clients.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Table of Contents
 
-### Compiles and minifies for production
-```
-npm run build
-```
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Technologies Used
+
+List of technologies and frameworks used in the project:
+  - Vue
+
+## Installation
+
+1. Install or update Node.js.
+
+2. Clone the repository:
+
+    ```bash
+    git clone https://github.com/calcaventia/invoice_web_app_vue.git
+    ```
+
+3. Navigate to the project directory:
+
+    ```bash
+    cd invoice_web_app_vue
+    ```
+
+4. Install dependencies:
+
+     - For Windows:
+    ```bash
+     npm install
+    ```
+  - For macOS/Linux:
+    ```bash
+    yarn install
+    ```
+ 
+7. Run the application:
+
+     - For Windows:
+    ```bash
+     npm run serve
+    ```
+  - For macOS/Linux:
+    ```bash
+    yarn serve
+    ```
+
+## Usage
+
+-Access the application in your web browser at `http://localhost:8080`.
+
+
