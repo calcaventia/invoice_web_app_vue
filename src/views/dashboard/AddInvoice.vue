@@ -26,8 +26,8 @@
           <p><strong>Email:</strong>{{ invoice.client.email }}</p>
           <p v-if="invoice.client.address1">{{ invoice.client.address1 }}</p>
           <p v-if="invoice.client.address2">{{ invoice.client.address2 }}</p>
-          <p v-if="invoice.client.zipcode || invoice.client.place">
-            {{ invoice.client.address1 }}{{ invoice.client.place }}
+          <p v-if="invoice.client.zipcode || invoice.client.province">
+            {{ invoice.client.zipcode }}, {{ invoice.client.province }}
           </p>
           <p v-if="invoice.client.country">{{ invoice.client.country }}</p>
         </div>
@@ -50,6 +50,9 @@
       <p><strong>Net amount</strong>: {{ invoice.net_amount }}</p>
       <p><strong>Vat amount</strong>: {{ invoice.vat_amount }}</p>
       <p><strong>Gross amount</strong>: {{ invoice.gross_amount }}</p>
+    </div>
+    <div class="column is-12">
+      <button class="button is-success" @click="submitForm">Save</button>
     </div>
   </div>
 </template>
@@ -127,6 +130,38 @@ export default {
       this.invoice.vat_amount = vat_amount;
       this.invoice.gross_amount = net_amount + vat_amount;
       this.invoice.discount_amount = 0;
+    },
+    submitForm() {
+      this.invoice.client_name = this.invoice.client.name;
+      this.invoice.client_email = this.invoice.client.email;
+      this.invoice.client_org_number = this.invoice.client.org_number;
+      this.invoice.client_address1 = this.invoice.client.address1;
+      this.invoice.client_address2 = this.invoice.client.address2;
+      this.invoice.client_zipcode = this.invoice.client.zipcode;
+      this.invoice.client_province = this.invoice.client.province;
+      this.invoice.client_country = this.invoice.client.country;
+      this.invoice.client_contact_person = this.invoice.client.contact_person;
+      this.invoice.client_contact_reference =
+        this.invoice.client.contact_reference;
+      this.invoice.client = this.invoice.client.id;
+
+      axios
+        .post("/api/v1/invoices/", this.invoice)
+        .then((response) => {
+          toast({
+            message: "The invoice was added",
+            type: "is-success",
+            dismissible: true,
+            pauseOnHover: true,
+            duration: 2000,
+            position: "bottom-right",
+          });
+
+          this.$router.push("/dashboard/invoices");
+        })
+        .catch((error) => {
+          console.log(JSON.stringify(error));
+        });
     },
   },
 };

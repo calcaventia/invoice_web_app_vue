@@ -17,8 +17,8 @@
         </p>
         <p v-if="client.address1">{{ client.address1 }}</p>
         <p v-if="client.address2">{{ client.address2 }}</p>
-        <p v-if="client.zipcode || client.place">
-          {{ client.zipcode }} {{ client.place }}
+        <p v-if="client.zipcode || client.province">
+          {{ client.zipcode }} {{ client.province }}
         </p>
         <p v-if="client.country">{{ client.country }}</p>
       </div>
