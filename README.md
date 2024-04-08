@@ -44,11 +44,11 @@ List of technologies and frameworks used in the project:
 
      - For Windows:
     ```bash
-     npm run dev
+     npm run serve
     ```
   - For macOS/Linux:
     ```bash
-    yarn dev
+    yarn serve
     ```
 
 ## Usage
