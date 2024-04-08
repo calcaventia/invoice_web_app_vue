@@ -30,7 +30,7 @@
         </div>
 
         <div class="field">
-          <label>Adress 1</label>
+          <label>Address 1</label>
           <div class="control">
             <input
               type="text"
@@ -68,13 +68,13 @@
         </div>
 
         <div class="field">
-          <label>Place</label>
+          <label>Province</label>
           <div class="control">
             <input
               type="text"
               name="place"
               class="input"
-              v-model="client.place"
+              v-model="client.province"
             />
           </div>
         </div>
